@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  #main {
+    background-image: url(./images/full-shot-adult-meditating.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 96vh;
+    width: 100%;
+  }
+
+
+/* Set the height and font size of the navigation bar */
+.navbar {
+    height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Set the background color to a gradient of purple and black */
+  .navbar {
+    background: linear-gradient(to right, #800080, #000000);
+  }
+  
+  /* Set the font color to pink */
+  .navbar a {
+    color: #FF69B4;
+  }
+  
+  /* Set the active link color to white */
+  .navbar .nav-item .active {
+    color: #fff;
+  }
+  
+  /* Add a hover effect on the links */
+  .navbar .nav-item .nav-link:hover {
+    color: #fff;
+    background-color: #FF69B4;
+    border-radius: 10px;
+  }
+  
+  /* Add a transition effect when hovering over the links */
+  .navbar .nav-item .nav-link {
+    transition: 0.3s;
+  }
+  
+  /* Add a drop shadow effect on the toggler button when active */
+  .navbar .navbar-toggler:focus {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Set the background color of the toggler button to pink */
+  .navbar .navbar-toggler-icon {
+    background-color: #FF69B4;
+  }
+
+  /* Set the background color of the dropdown menu */
+  .navbar-collapse {
+    background: linear-gradient(to right, #800080, #000000);
+  }
+  
+
+
+.container {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+h2 {    
+    font-size: 28px;
+    font-weight: 700;
+    color: #B727C2;
+    margin-bottom: 10px;
+  }
+
+p, ul {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.container .fa-om {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+    
+
+.container .p-3:hover {
+    background-color: linear-gradient(#800080, #000000);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10%;
+  } 
+  
+  

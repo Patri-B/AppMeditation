@@ -1,0 +1,22 @@
+.meditation-type {
+  transition: all 0.5s ease-in-out; 
+  }
+  .col-6:hover {
+    cursor: pointer;
+  } 
+
+  .meditation-type.expanded {
+    transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .meditation-type .bigscreen {
+    display: none;
+  }
+  
+
+
+
+.meditation-type.expanded .bigscreen {
+    display: block;
+}
