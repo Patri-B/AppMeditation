@@ -2,37 +2,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    position: absolute;
+    min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
 .track-outline, .moving-outline {
     transform-origin: center;
-  }
+}
 
 .player-container > h1 {
     font-family: 'Sue Ellen Francisco';
     font-size: 70px;
 }
 
+.circle-graphics {
+    position: relative;
+}
+
 .play-icon {
     font-size: xx-large;
-    position: absolute;
+    position: relative;
+    top: 270px;
     color: #ffffff;
-    top: 57%;
     cursor: pointer;
-   
+    z-index: 3;  
 }
 
 
 #timer {
     color: #ffffff;
-    position: absolute;
-    bottom: 5%;
+    position: relative;
 }
 
 .player-container p {
     font-family: 'Sue Ellen Francisco';
-    position: absolute;
-    bottom: -5%;
     font-size: 25px;
-    color: #ffffff;
+    color: #B727C2;
+    position: relative;
+    bottom: -60px;
 }
+

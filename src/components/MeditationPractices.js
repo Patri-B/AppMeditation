@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { Fade } from 'react-reveal';
 import './MeditationPractices.css';
 
-const MeditationTypesAI = () => {
+const MeditationPractices = () => {
     const [ref1, inView1, outView1] = useInView({ threshold: 0.5 });
     const [ref2, inView2, outView2] = useInView({ threshold: 0.5 });
     const [ref3, inView3, outView3] = useInView({ threshold: 0.5 });
@@ -26,7 +26,7 @@ const MeditationTypesAI = () => {
   };
 
   return (
-    <div className="container overflow-hidden text-center">
+    <div className="container overflow-hidden text-center" id='MeditationPractices'>
       <div className="row gy-5">
 
         <div className="col-6" >
@@ -117,4 +117,4 @@ const MeditationTypesAI = () => {
   );
   }
 
-export default MeditationTypesAI
+export default MeditationPractices

@@ -7,17 +7,17 @@
   
   #main {
     background-image: url(./images/full-shot-adult-meditating.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    
+    background-position: center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     height: 96vh;
     width: 100%;
-  }
+}
+
 
 
 /* Set the height and font size of the navigation bar */
@@ -30,6 +30,7 @@
   /* Set the background color to a gradient of purple and black */
   .navbar {
     background: linear-gradient(to right, #800080, #000000);
+    z-index: 2;
   }
   
   /* Set the font color to pink */
@@ -70,36 +71,3 @@
   }
   
 
-
-.container {
-    font-family: 'Montserrat', sans-serif;
-    padding: 20px;
-}
-
-h2 {    
-    font-size: 28px;
-    font-weight: 700;
-    color: #B727C2;
-    margin-bottom: 10px;
-  }
-
-p, ul {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #666;
-}
-
-.container .fa-om {
-    font-size: 48px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-    
-
-.container .p-3:hover {
-    background-color: linear-gradient(#800080, #000000);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10%;
-  } 
-  
-  

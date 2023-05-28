@@ -15,10 +15,10 @@
 }
 
 .benefits-section h2 {
-    color: #333;
+    color: #ffffff;
     font-family: 'Sue Ellen Francisco';
     font-size: 70px;
-    font-weight: 200;
+    font-weight: 180;
     padding-top: 40px;
 }
 
@@ -32,6 +32,7 @@
 }
 
 .button-section h3 {
+    color:#ffffff ;
   font-weight: 550;
   font-family: 'Sue Ellen Francisco';
   font-size: 50px;
