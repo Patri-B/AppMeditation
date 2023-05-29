@@ -1,24 +1,35 @@
 .benefits-section {
     background: linear-gradient(to right bottom, #9b0d9b, #323131);
-    position: absolute;
+    position: relative; 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: auto;
     width: 100%;
-     
+}
+
+.container {
+    width: 100%
+}
+
+.row {
+    margin-top: 3%;
+}
+
+.benefits-section p, ul {
+    color: #ffffff;
+    list-style: none;
 }
 
 
-.benefits-section p, ul {
-    color: #dbcccc;
+ul li::before {
+    content: "- ";
 }
 
 .text-section{
     position: relative;
+    flex: 1;
 }
-
-
 
 .text-section h2 {
     color: #ffffff;
@@ -28,25 +39,36 @@
   
 }
 
+/*BUTTON*/
+
 .button-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-   
-}
-
-.button-section h3 {
-color:#ffffff ;
-  font-weight: 550;
-  font-family: 'Sue Ellen Francisco';
-  font-size: 3em;
-    
-}
-
-.button-section .btn {
-    background-color: #f7f2ff; /* light white */
-    color: #e81f8b; /* pink */
+    margin-top: 10%;
+    padding: 20px;
+    border: 2px solid #ffffff; /* Dark purple border color */
+    border-radius: 8px;
+    background-color: #38243d; /* Dark background color */
+  }
+  
+  .button-section h3 {
+    color: #ffffff;
+    font-weight: 550;
+    font-family: 'Sue Ellen Francisco';
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .button-section p {
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .button-section .btn {
+    background-color: #9b0d9b; /* Dark purple button background color */
+    color: #ffffff; /* White button text color */
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -55,10 +77,51 @@ color:#ffffff ;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
+  
   .button-section .btn:hover {
-    background-color: #B727C2;; /* purple */
-    color: #fff; /* white */
+    background-color: #660066; /* Darker purple button background color on hover */
   }
+  
+  @keyframes pulse-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .button-section:hover {
+    animation: pulse-animation 1s infinite; /* Animation effect on hover */
+  }
+  
+
+
+  
+
+/*IMAGE*/
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+  }
+  
+  .image-section img:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  
   
 

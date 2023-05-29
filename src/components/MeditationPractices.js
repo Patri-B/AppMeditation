@@ -71,7 +71,7 @@ const MeditationPractices = () => {
         </div>
 
         <div className="col-6">
-        <div className={`p-3 meditation-type ${expandedIndex === 2 ? 'expanded' : ''}`} onClick={() => toggleExpand(2)} ref={ref3}>
+          <div className={`p-3 meditation-type ${expandedIndex === 2 ? 'expanded' : ''}`} onClick={() => toggleExpand(2)} ref={ref3}>
             <Fade bottom when={isLoaded && inView3} fadeOut={outView3}>
               <i className="fa-solid fa-om"></i>
               <h2>Transcendental meditation</h2>
@@ -85,14 +85,13 @@ const MeditationPractices = () => {
                 One of the key aspects of mindfulness meditation is developing a non-judgmental attitude towards one's thoughts and experiences. 
                 This means accepting whatever thoughts or feelings arise, without trying to change or suppress them. By doing so, you can cultivate 
                 a greater sense of inner peace and contentment, regardless of external circumstances.
-              </p>
-                
+              </p> 
             </Fade>
           </div>
         </div>
 
         <div className="col-6">
-        <div className={`p-4 meditation-type ${expandedIndex === 3 ? 'expanded' : ''}`} onClick={() => toggleExpand(3)} ref={ref4}>
+          <div className={`p-4 meditation-type ${expandedIndex === 3 ? 'expanded' : ''}`} onClick={() => toggleExpand(3)} ref={ref4}>
             <Fade bottom when={isLoaded && inView4} fadeOut={outView4}>
               <i className="fa-solid fa-om"></i>
               <h2>Loving-kindness meditation</h2>
@@ -107,8 +106,7 @@ const MeditationPractices = () => {
                 This means accepting whatever thoughts or feelings arise, without trying to change or suppress them. By doing so, you can cultivate 
                 a greater sense of inner peace and contentment, regardless of external circumstances.
               </p>
-
-              </Fade>
+            </Fade>
           </div>
         </div>
         

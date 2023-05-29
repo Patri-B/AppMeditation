@@ -81,7 +81,6 @@ const ProgressCircle = () => {
   const handleMultipleClicks = () =>{
     handlePlayClick();
     handlePlay();
-
   }
 
   const playIcon = isPlaying ? <ImPause2 /> : <ImPlay3 />;
@@ -128,15 +127,15 @@ const ProgressCircle = () => {
     <div className="player-container">
         <h1 className="header">Welcome to our Meditation Website</h1>
         <div className="play-icon" onClick={handleMultipleClicks}>
-        {accessToken && playIcon}
-          </div>
+          {accessToken && playIcon}
+        </div>
         
       <div className="circle">
-      <svg height="500" width="500" viewBox="0 0 500 500">
-        <circle className="track-outline" r="220" cx="250" cy="250" stroke="#B727C2" strokeWidth="20" fillOpacity="0" transform="rotate(-90)"></circle>
-        <circle className="moving-outline" r="220" cx="250" cy="250" stroke="#ED32FA" strokeWidth="20" fillOpacity="0"
-          style={{ strokeDasharray: "1381.6", strokeDashoffset: `${offset}px`, transition: "stroke-dashoffset 1s linear", transform: "rotate(-90deg)"}}></circle>
-      </svg>
+        <svg height="500" width="500" viewBox="0 0 500 500">
+          <circle className="track-outline" r="220" cx="250" cy="250" stroke="#B727C2" strokeWidth="20" fillOpacity="0" transform="rotate(-90)"></circle>
+          <circle className="moving-outline" r="220" cx="250" cy="250" stroke="#ED32FA" strokeWidth="20" fillOpacity="0"
+            style={{ strokeDasharray: "1381.6", strokeDashoffset: `${offset}px`, transition: "stroke-dashoffset 1s linear", transform: "rotate(-90deg)"}}></circle>
+        </svg>
       </div>
 
       <h3 id="timer">{Math.floor(time / 60).toString().padStart(2, '0')}:{(time % 60).toString().padStart(2, '0')}</h3>
