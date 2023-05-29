@@ -3,11 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: relative;
     min-height: 100%;
     padding: 20px;
     box-sizing: border-box;
-    z-index: 1;
+
 }
 
 .track-outline, .moving-outline {
@@ -17,6 +17,8 @@
 .player-container > h1 {
     font-family: 'Sue Ellen Francisco';
     font-size: 70px;
+    padding-left: 40px;
+    padding-top: 20%;
 }
 
 .circle-graphics {

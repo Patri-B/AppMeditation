@@ -1,25 +1,31 @@
-.text-section {
-    width: 40%;
-    margin-left: 20px;
-    margin-right: 3%;
-}
-
 .benefits-section {
     background: linear-gradient(to right bottom, #9b0d9b, #323131);
+    position: absolute;
     display: flex;
-    height: 565px;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100%;
+     
 }
+
 
 .benefits-section p, ul {
     color: #dbcccc;
 }
 
-.benefits-section h2 {
+.text-section{
+    position: relative;
+}
+
+
+
+.text-section h2 {
     color: #ffffff;
     font-family: 'Sue Ellen Francisco';
-    font-size: 70px;
+    font-size: 4em;
     font-weight: 180;
-    padding-top: 40px;
+  
 }
 
 .button-section {
@@ -27,15 +33,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-top: 160px;
-    width: 30%;
+   
 }
 
 .button-section h3 {
-    color:#ffffff ;
+color:#ffffff ;
   font-weight: 550;
   font-family: 'Sue Ellen Francisco';
-  font-size: 50px;
+  font-size: 3em;
     
 }
 
@@ -45,19 +50,15 @@
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
   .button-section .btn:hover {
-    background-color: #9c27b0; /* purple */
+    background-color: #B727C2;; /* purple */
     color: #fff; /* white */
   }
   
 
-.image-section {
-    padding-top: 60px;
-    padding-right: 3%;
-}

@@ -4,6 +4,23 @@
     font-family: "Poppins", sans-serif;
     box-sizing: border-box;
   }
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the container height to 100% of the viewport height */
+  }
+  
+  section {
+    flex-grow: 1; /* Allow each section to expand and fill the available space */
+    overflow: auto; /* Add a scrollbar if the content exceeds the section height */
+  }
+  
+  #main,
+  #meditation,
+  #benefits {
+    min-height: 0; /* Reset the minimum height to allow the sections to shrink */
+  }
+  
   
   #main {
     background-image: url(./images/full-shot-adult-meditating.jpg);
@@ -19,55 +36,28 @@
 }
 
 
-
-/* Set the height and font size of the navigation bar */
+/* Set the background color to a gradient of purple and black */
 .navbar {
-    height: 80px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  /* Set the background color to a gradient of purple and black */
-  .navbar {
-    background: linear-gradient(to right, #800080, #000000);
-    z-index: 2;
-  }
-  
-  /* Set the font color to pink */
-  .navbar a {
-    color: #FF69B4;
-  }
-  
-  /* Set the active link color to white */
-  .navbar .nav-item .active {
-    color: #fff;
-  }
-  
-  /* Add a hover effect on the links */
-  .navbar .nav-item .nav-link:hover {
-    color: #fff;
-    background-color: #FF69B4;
-    border-radius: 10px;
-  }
-  
-  /* Add a transition effect when hovering over the links */
-  .navbar .nav-item .nav-link {
-    transition: 0.3s;
-  }
-  
-  /* Add a drop shadow effect on the toggler button when active */
-  .navbar .navbar-toggler:focus {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
-  }
-  
-  /* Set the background color of the toggler button to pink */
-  .navbar .navbar-toggler-icon {
-    background-color: #FF69B4;
+  background: linear-gradient(to right, #800080, #000000);
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 2;
   }
 
-  /* Set the background color of the dropdown menu */
-  .navbar-collapse {
-    background: linear-gradient(to right, #800080, #000000);
+/* Add a hover effect on the links */
+.navbar .nav-item .nav-link:hover {
+  color: #fff;
+  background-color: #B727C2;
+  border-radius: 5px;
+
   }
   
+/* Add a transition effect when hovering over the links */
+.navbar .nav-item .nav-link {
+  transition: 0.3s;
+  }
+
+.navbar-brand, .nav-item {
+  padding-left: 10px;
+}
 
