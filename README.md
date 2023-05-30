@@ -2,7 +2,7 @@ Meditation Website
 
 This is a React-based website that provides a meditation experience for users. It features a timer with a progress circle that counts down for 10 minutes, similar to the concept of the Pomodoro technique. The progress circle changes its color as the time progresses. The website also includes sections with informative texts about meditations and their benefits.
 
-App is running on the http://localhost:3000 
+App is running on the http://localhost:3000/#
 
 
 To enable music playback using the Spotify API, you need to provide your client credentials in the spotify.env file. Follow these steps to configure the credentials:

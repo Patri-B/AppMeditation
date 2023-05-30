@@ -12,7 +12,7 @@
   
   section {
     flex-grow: 1; /* Allow each section to expand and fill the available space */
-    overflow: auto; /* Add a scrollbar if the content exceeds the section height */
+    /* Add a scrollbar if the content exceeds the section height */
   }
   
   #main,
