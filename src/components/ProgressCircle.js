@@ -1,56 +1,85 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ImPlay3, ImPause2 } from "react-icons/im";
 import ".//ProgressCircle.css";
-
-
-function getAccessToken() {
-  const clientId = '46dc9d25447b414297e8df42f5a82822';
-  const clientSecret = '8ca23b4bf8194968ba1bff306ed800f0';
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
-    },
-    body: 'grant_type=client_credentials'
-  };
-
-  return fetch('https://accounts.spotify.com/api/token', requestOptions)
-    .then(response => response.json())
-    .then(data => data.access_token)
-    .catch(error => console.log('Error:', error));
-}
-
-
-function getTrack(access_token) {
-  const requestOptions = {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + access_token
-    }
-  };
-
-  return fetch('https://api.spotify.com/v1/tracks/1fm7ZEMN73ygxuZIj0HR3x?si=6653bad3bd67469f', requestOptions)
-    .then(response => response.json())
-    .then(data => data.preview_url)
-    .catch(error => console.log('Error:', error));
-}
 
 
 const ProgressCircle = () => {
   const [time, setTime] = useState(10 * 60); // time in seconds
   const [offset, setOffset] = useState(1381.6); // value of stroke-dashoffset
   const [isPlaying, setIsPlaying] = useState(false); // variable to track if it's playing or not
-  const [previousTime, setPreviousTime] = useState(10 * 60); // previous time
   const [accessToken, setAccessToken] = useState(null);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const [audio, setAudio] = useState(null);
+  const playIcon = isPlaying ? <ImPause2 /> : <ImPlay3 />;
 
-  useEffect(() => {
-    getAccessToken().then(token => setAccessToken(token));
+  async function getAccessToken() {
+    const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+    const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+    console.log('process.env', process.env);
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
+      },
+      body: 'grant_type=client_credentials'
+    };
+  
+    try {
+      const response = await fetch('https://accounts.spotify.com/api/token', requestOptions);
+      const data = await response.json();
+      return data.access_token;
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
+  
+  async function getTrack(access_token) {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + access_token
+      }
+    };
+  
+    try {
+      const response = await fetch('https://api.spotify.com/v1/tracks/1fm7ZEMN73ygxuZIj0HR3x?si=6653bad3bd67469f', requestOptions);
+      const data = await response.json();
+      return data.preview_url;
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
+
+
+  const calculateOffset = useCallback((currentTime) => {
+    const totalLength = 1381.6; // length of circle in px
+    const oneSecondLength = totalLength / (10 * 60); // length of one second in px
+    return totalLength - oneSecondLength * (10 * 60 - currentTime); // calculate current offset value
   }, []);
 
-  useEffect(() => {
+
+  const handleClick = () => {
+    setIsPlaying(!isPlaying);
+  
+    if (audio) {
+      setIsPlayingMusic(!isPlayingMusic);
+    } else {
+      getTrack(accessToken).then(url => {
+        const newAudio = new Audio(url);
+        const onEnded = () => setIsPlayingMusic(false); // Define the event handler function
+        newAudio.addEventListener('ended', onEnded);
+        setAudio(newAudio);
+        setIsPlayingMusic(true);
+  
+        return () => {
+          newAudio.removeEventListener('ended', onEnded); // Remove the event listener when component unmounts
+        };
+      });
+    }
+  };
+
+  function handleAudioPlayback(audio, isPlayingMusic) {
     if (audio) {
       if (isPlayingMusic) {
         audio.play();
@@ -58,34 +87,9 @@ const ProgressCircle = () => {
         audio.pause();
       }
     }
-  }, [isPlayingMusic, audio]);
-
- 
-  const handlePlayClick = () => {
-    setIsPlaying(!isPlaying);
-  };
-
-  const handlePlay = () => {
-    if (audio) {
-      setIsPlayingMusic(!isPlayingMusic);
-    } else {
-      getTrack(accessToken).then(url => {
-        const newAudio = new Audio(url);
-        newAudio.addEventListener('ended', () => setIsPlayingMusic(false));
-        setAudio(newAudio);
-        setIsPlayingMusic(true);
-       
-      });
-    }
   }
-  const handleMultipleClicks = () =>{
-    handlePlayClick();
-    handlePlay();
-  }
-
-  const playIcon = isPlaying ? <ImPause2 /> : <ImPlay3 />;
-
-  useEffect(() => {
+  
+  const startTimer = useCallback(() => {
     let intervalId = null;
     if (isPlaying && time > 0) {
       intervalId = setInterval(() => {
@@ -94,39 +98,43 @@ const ProgressCircle = () => {
     } else if (time === 0) {
       setIsPlaying(false);
     }
+    return intervalId;
+  }, [isPlaying, time]);
+
+  function updateOffset(isPlaying, setOffset, calculateOffset, currentTime) {
+    if (isPlaying) {
+      setOffset(calculateOffset(currentTime));
+    }
+  }
+  
+  const updateOffsetWhenNotPlaying = useCallback(() => {
+    if (!isPlaying) {
+      setOffset(calculateOffset(time));
+    }
+  }, [isPlaying, time, calculateOffset]);
+
+  
+  useEffect(() => {
+    handleAudioPlayback(audio, isPlayingMusic);
+
+    const intervalId = startTimer();
+
+    updateOffset(isPlaying, setOffset, calculateOffset, time);
+
+    updateOffsetWhenNotPlaying();
+
+    getAccessToken().then(token => setAccessToken(token));
 
     return () => {
       clearInterval(intervalId);
     };
-  }, [isPlaying, time]);
+  }, [audio, isPlayingMusic, isPlaying, time, setOffset, calculateOffset, updateOffsetWhenNotPlaying, startTimer]);
 
-  // function to calculate stroke-dashoffset value based on time
-  const calculateOffset = (time) => {
-    const totalLength = 1381.6; // length of circle in px
-    const oneSecondLength = totalLength / (10 * 60); // length of one second in px
-    return totalLength - oneSecondLength * (10 * 60 - time); // calculate current offset value
-  };
-
-  useEffect(() => {
-    // if playing, update the value of stroke-dashoffset after each second
-    if (isPlaying) {
-      setOffset(calculateOffset(time));
-    } else {
-      setPreviousTime(time);
-    }
-  }, [isPlaying, time]);
-
-  useEffect(() => {
-    // if not playing, update the value of stroke-dashoffset after each second
-    if (!isPlaying) {
-      setOffset(calculateOffset(previousTime));
-    }
-  }, [isPlaying, previousTime]);
 
   return (
     <div className="player-container">
         <h1 className="header">Welcome to our Meditation Website</h1>
-        <div className="play-icon" onClick={handleMultipleClicks}>
+        <div className="play-icon" onClick={handleClick}>
           {accessToken && playIcon}
         </div>
         

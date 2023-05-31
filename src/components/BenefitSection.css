@@ -1,125 +1,116 @@
 .benefits-section {
-    background: linear-gradient(to right bottom, #9b0d9b, #323131);
-    position: relative; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
+  background: linear-gradient(to right bottom, #9b0d9b, #323131);
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
 }
 
 .container {
-    width: 100%
-}
-
-.row {
-    margin-top: 3%;
+  width: 100%
 }
 
 .benefits-section p, ul {
-    color: #ffffff;
-    list-style: none;
+  color: #ffffff;
+  list-style: none;
+  padding-left: 0;
 }
 
-
 .text-section ul li::before {
-    content: "- ";
+  content: "- ";
 }
 
 .text-section{
-    position: relative;
-    flex: 1;
+  position: relative;
+  flex: 1;
+  padding-top: 10%;
+  margin-left: 10%;
+  text-align: left;
 }
 
 .text-section h2 {
-    color: #ffffff;
-    font-family: 'Sue Ellen Francisco';
-    font-size: 4em;
-    font-weight: 180;
-  
+  color: #ffffff;
+  font-family: 'Sue Ellen Francisco';
+  font-size: 4em;
+  font-weight: 180;
 }
 
-/*BUTTON*/
-
 .button-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 20%;
-    padding: 20px;
-    border: 2px solid #ffffff; /* Dark purple border color */
-    border-radius: 8px;
-    background-color: #38243d; /* Dark background color */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20%;
+  padding: 20px;
+  border: 2px solid #ffffff; /* Dark purple border color */
+  border-radius: 8px;
+  background-color: #38243d; /* Dark background color */
+}
   
-  .button-section h3 {
-    color: #ffffff;
-    font-weight: 550;
-    font-family: 'Sue Ellen Francisco';
-    font-size: 2.5em;
-    margin-bottom: 10px;
-  }
-  
-  .button-section p {
-    color: #ffffff;
-  }
-  
-  .button-section .btn {
-    background-color: #9b0d9b; /* Dark purple button background color */
-    color: #ffffff; /* White button text color */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button-section .btn:hover {
-    background-color: #660066; /* Darker purple button background color on hover */
-  }
-  
-  @keyframes pulse-animation {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  .button-section:hover {
-    animation: pulse-animation 1s infinite; /* Animation effect on hover */
-  }
-  
+.button-section h3 {
+  color: #ffffff;
+  font-weight: 550;
+  font-family: 'Sue Ellen Francisco';
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
 
+.button-section p {
+  color: #ffffff;
+}
+  
+.button-section .btn {
+  background-color: #9b0d9b; /* Dark purple button background color */
+  color: #ffffff; /* White button text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+  
+.button-section .btn:hover {
+  background-color: #660066; /* Darker purple button background color on hover */
+}
 
-  
-
-/*IMAGE*/
-.image-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
   }
-  
-  .image-section img {
-    max-width: 100%;
-    margin-top: 10px;
-    height: auto;
-    border-radius: 40px;
-    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s ease;
-  }
-  
-  .image-section img:hover {
+  50% {
     transform: scale(1.05);
   }
+  100% {
+    transform: scale(1);
+  }
+}
+  
+.button-section:hover {
+  animation: pulse-animation 1s infinite; /* Animation effect on hover */
+}
+  
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+  margin: 5%;
+}
+
+.image-section img:hover {
+  transform: scale(1.05);
+}
   
   
   

@@ -1,0 +1,11 @@
+#about-us {
+    background: #333;;
+}
+
+#about-us .fa-om, .fa-phone  {
+    color: white;
+}
+
+#about-us p{
+    color: white;    
+}

@@ -18,16 +18,16 @@ const NavigationBar = () => {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#main">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Meditation Practices</a>
+                <a class="nav-link active" aria-current="page" href="#meditation">Meditation Practices</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Benefits of Meditation</a>
+                <a class="nav-link active" aria-current="page" href="#benefits">Benefits of Meditation</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active">About us</a>
+                <a class="nav-link active" href="#aboutus">About us</a>
                 </li>
             </ul>        
             </div>

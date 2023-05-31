@@ -5,8 +5,9 @@
     justify-content: center;
     position: relative;
     min-height: 100%;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
+    overflow: auto;
 
 }
 
@@ -45,6 +46,6 @@
     font-size: 25px;
     color: #B727C2;
     position: relative;
-    bottom: 20px;
+    bottom: -20px;
 }
 
